@@ -108,6 +108,10 @@ CH:
 - [legged_gym](https://github.com/leggedrobotics/legged_gym)
 - [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware)
 
+
+## Contact
+If you have any questions or have a will to coorperate, please [contact](mailto:hqfu@smail.nju.edu.cn)
+
 ## Citing
 
 If you use MetalHead in your research please use the following citation:
@@ -122,5 +126,3 @@ If you use MetalHead in your research please use the following citation:
   howpublished = {\url{https://github.com/inspirai/MetalHead}},
 }
 
-## Contact
-If you have any questions or have a will to coorperate, please [contact](mailto:hqfu@smail.nju.edu.cn)
