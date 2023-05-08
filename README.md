@@ -23,30 +23,62 @@ python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 ```
 25000 iterations of training can be enough to show the performance.
 
-## Observation additions
+## Changes compared to AMP_for_Hardware
+
+### Observation additions
+EN:
 - Added root_h, root_euler[:, :2], flat_local_key_pos to obs, representing the absolute height of the root, the rotation angle of the root, and the relative coordinates of the four foot ends in the root coordinate system, respectively
 - Added jump_sig to obs, indicating whether the jump command is triggered
 - policy_obs and critic_obs are consistent
 - amp_policy_obs removes commands and jump_sig from the policy_obs
 
-## Action changes
-- Changed action to position PD control, using the set_dof_position_target_tensor API
+CH:
+- obs增加`root_h`, `root_euler[:, :2]`, `flat_local_key_pos`, 分别表示root的绝对高度, root的转角以及四个足端在root坐标系下的相对坐标
+- obs增加`jump_sig`, 表示是否触发jump command
+- policy_obs和critic_obs一致
+- amp_policy_obs在policy_obs基础上去掉`commands`以及`jump_sig`
+
+### Action changes
+EH:
+- Changed action to position PD control, using `set_dof_position_target_tensor` API
 - Policy inference frequency is 200 / 6 Hz, with a physical simulation frequency of 200 Hz and action repetition count of 6
+CH:
+- action改为位置PD控制，使用`set_dof_position_target_tensor` API
+- policy inference频率200 / 6 Hz, 其中物理仿真200Hz, action重复次数为6次
 
-## Reward additions
+### Reward additions
+EN:
 - Added _reward_jump_up for calculating task rewards
+CH:
+- 新增`_reward_jump_up`, 计算task奖励
 
-## Random initialization
+
+### Random initialization
+EN:
 - recovery_init_prob = 0.15, with a 15% probability of random initialization, added _reset_root_states_rec function for random sampling in three Euler angle directions
 
-## Mocap data
+CH:
+- `recovery_init_prob = 0.15`, 以15%的概率随机初始化，新增`_reset_root_states_rec`函数，实现三个欧拉角方向上的随机采样
+
+### Mocap data
+EN:
 - For command-based locomotion+jump, motion capture data includes gallop_forward0, gallop_forward1, jump0, jump1, jump2, trot_forward0, turn_left0, turn_left1, turn_right0, turn_right1, where trot is the same side two legs
 - In the JSON file, the weight of the jump data is set to 1.5, and the others are 0.5
 
-## Play camera tracking
+CH:
+- 对于command-based locomotion+jump, 动捕数据有gallop_forward0, gallop_forward1, jump0, jump1, jump2, trot_forward0, turn_left0, turn_left1, turn_right0, turn_right1，其中，tort是同侧两条腿
+- json文件中，jump数据的weight设置为1.5, 其余0.5
+
+### Play camera tracking
+EN:
 - In MOVE_CAMERA mode, the camera follows the robot's root at a fixed angle, and the camera's position and yaw angle relative to the robot remain unchanged
 
-## Some key parameters
+CH:
+- 在`MOVE_CAMERA`模式下, 摄像头以固定视角跟随机器人的root, 摄像头相对于机器人的position以及yaw角不变
+
+
+### Some key parameters
+EN:
 - action_scale=0.75, too large or too small cannot achieve command jump
 - all_stiffness = 80.0, all_damping=1.0, good PD parameters can facilitate simulation training, and more importantly, have a greater impact on the difficulty of sim2real transfer
 - amp_task_reward_lerp = 0.3, controls the weight of task reward and style reward
@@ -55,30 +87,7 @@ python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 - tracking_ang_vel = 0.1 * 1. / (.005 * 6), too small weight cannot follow angular velocity properly, maybe try heading tracking, which is more convenient in sim
 - In random initialization mode, terminate_after_contacts_on is set to empty
 
-## observation 新增
-- obs增加`root_h`, `root_euler[:, :2]`, `flat_local_key_pos`, 分别表示root的绝对高度, root的转角以及四个足端在root坐标系下的相对坐标
-- obs增加`jump_sig`, 表示是否触发jump command
-- policy_obs和critic_obs一致
-- amp_policy_obs在policy_obs基础上去掉`commands`以及`jump_sig`
-
-## action 改动
-- action改为位置PD控制，使用`set_dof_position_target_tensor` API
-- policy inference频率200 / 6 Hz, 其中物理仿真200Hz, action重复次数为6次
-
-## reward 新增
-- 新增`_reward_jump_up`, 计算task奖励
-
-## 随机初始化
-- `recovery_init_prob = 0.15`, 以15%的概率随机初始化，新增`_reset_root_states_rec`函数，实现三个欧拉角方向上的随机采样
-
-## mocap数据
-- 对于command-based locomotion+jump, 动捕数据有gallop_forward0, gallop_forward1, jump0, jump1, jump2, trot_forward0, turn_left0, turn_left1, turn_right0, turn_right1，其中，tort是同侧两条腿
-- json文件中，jump数据的weight设置为1.5, 其余0.5
-
-## play 视角跟随
-- 在`MOVE_CAMERA`模式下, 摄像头以固定视角跟随机器人的root, 摄像头相对于机器人的position以及yaw角不变
-
-## 一些关键参数
+CH:
 - `action_scale=0.75`, 太大或者太小无法实现command jump
 - `all_stiffness = 80.0`, `all_damping=1.0`, 一个好的PD参数能够方便仿真训练，更重要的是对sim2real的迁移难度影响较大
 - `amp_task_reward_lerp = 0.3`, 控制task reward和style reward的权重
