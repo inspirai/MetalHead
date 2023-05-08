@@ -2,6 +2,7 @@
 # Quadruped Robot A1 Locomotion and Jumping with AMP
 
 [![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
+Click above image to watch the Video!
 
 ### Installation ###
 1. Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended). i.e. with conda:
