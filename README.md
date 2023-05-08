@@ -1,12 +1,14 @@
 
+[![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
+Click above image to watch the Video!
+
 # MetalHead: Natural Locomotion, Jumping and Recovery of Quadruped Robot A1 with AMP
 
 The majority of research on quadruped robots has yet to accomplish complete natural movements such as walking, running, jumping, and recovering from falls. This project MetalHead, which utilizes the AMP algorithm and meticulous engineering to successfully achieve these objectives.
 
 This repository is based off of Alejandro Escontrela's [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware). All experiments are running with A1 robot from Unitree on [Isaac Gym](https://developer.nvidia.com/isaac-gym).
 
-[![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
-Click above image to watch the Video!
+
 
 ## Installation
 
