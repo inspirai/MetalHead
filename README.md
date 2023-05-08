@@ -1,7 +1,9 @@
 
-# MetalHead: Natural Locomotion and Jumping of Quadruped Robot A1 with AMP
+# MetalHead: Natural Locomotion, Jumping and Recovery of Quadruped Robot A1 with AMP
 
-The core contribution of this repository is to make the quadruped robot A1 being able to do natural locomotion and jumping like the video below. This repository is based off of Alejandro Escontrela's [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware). All experiments are running on [Isaac Gym](https://developer.nvidia.com/isaac-gym).
+The majority of research on quadruped robots has yet to accomplish complete natural movements such as walking, running, jumping, and recovering from falls. This project MetalHead, which utilizes the AMP algorithm and meticulous engineering to successfully achieve these objectives.
+
+This repository is based off of Alejandro Escontrela's [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware). All experiments are running with A1 robot from Unitree on [Isaac Gym](https://developer.nvidia.com/isaac-gym).
 
 [![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
 Click above image to watch the Video!
@@ -15,7 +17,7 @@ Please just following [AMP_for_hardware](https://github.com/Alescontrela/AMP_for
 ```
 python legged_gym/scripts/play.py --task=a1_amp_jump_cmd --num_envs=64 --load_run=example
 ```
-Press w,a,s,d to change the speed, and press Space to make it jump!
+Press w,a,s,d to change A1 speed for different gait of walking and running, and press Space to make it jump! Have fun of it!
 
 ## How to Train
 ```
@@ -24,6 +26,8 @@ python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 25000 iterations of training can be enough to show the performance.
 
 ## Changes compared to AMP_for_Hardware
+
+For detail, please see wikis https://github.com/inspirai/MetalHead/wiki (You can try to translate them into English with ChatGPT for convenient reading.)
 
 ### Observation additions
 EN:
@@ -86,6 +90,7 @@ EN:
 - resampling_time = 2., episode_length_s=10., command sampling interval and episode length, in recovery_init mode, sampling interval has a greater impact on jump effect
 - tracking_ang_vel = 0.1 * 1. / (.005 * 6), too small weight cannot follow angular velocity properly, maybe try heading tracking, which is more convenient in sim
 - In random initialization mode, terminate_after_contacts_on is set to empty
+- `recovery_init_prob = 0.15` add 15% random fall init to achieve robust recovery.
 
 CH:
 - `action_scale=0.75`, 太大或者太小无法实现command jump
@@ -95,6 +100,7 @@ CH:
 - `resampling_time = 2.`, `episode_length_s=10.`, command采样间隔以及回合长度, 在recovery_init模式下, 采样间隔对jump效果影响较大
 - `tracking_ang_vel = 0.1 * 1. / (.005 * 6)`, 权重太小无法正常跟随角速度，或许可以尝试heading跟随，在sim中比较方便
 - 在随机初始化模式下，`terminate_after_contacts_on`设置为空
+- `recovery_init_prob = 0.15` 增加了15%几率的随机倒地初始化实现Robust Recovery
 
 
 ## Highly Related Git
@@ -109,7 +115,7 @@ If you use MetalHead in your research please use the following citation:
 ````
 @misc{InspirAI,
   author = {Huiqiao Fu, Yutong Wu, Flood Sung},
-  title = {MetalHead: Natural Locomotion and Jumping of Quadruped Robot A1 with AMP},
+  title = {MetalHead: Natural Locomotion, Jumping and Recovery of Quadruped Robot A1 with AMP},
   year = {2023},
   publisher = {GitHub},
   journal = {GitHub repository},
