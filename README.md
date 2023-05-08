@@ -55,15 +55,22 @@ python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 - `tracking_ang_vel = 0.1 * 1. / (.005 * 6)`, 权重太小无法正常跟随角速度，或许可以尝试heading跟随，在sim中比较方便
 - 在随机初始化模式下，`terminate_after_contacts_on`设置为空
 
-## 历史版本
-- `amp_jump_cmd_v3.6`: `amp_task_reward_lerp`从0.3逐步降低到0.2，实现比较好的locomotion+jump
-- `amp_jump_cmd_v3.4`: 导入a1 motion retargeting相关代码: `poselib`, 暂时取消recovery
-- `amp_jump_cmd_v3.1`: 利用AMP以及动捕数据实现a1 jump+command+recovery, jump姿态不够理想
-- `amp_jump_cmd_v1.8`: 利用AMP以及动捕数据实现a1 jump+command
-- `amp_jump_v2.1`: 利用AMP以及动捕数据实现a1 jump
-- `amp_base_version`: 利用AMP以及动捕数据实现a1 locomotion
 
 ## Highly Related Git
 - [rsl_rl](https://github.com/leggedrobotics/rsl_rl)
 - [legged_gym](https://github.com/leggedrobotics/legged_gym)
 - [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware)
+
+## Citing
+
+If you use MetalHead in your research please use the following citation:
+
+````
+@misc{InspirAI,
+  author = {Huiqiao Fu, Yutong Wu, Flood Sung},
+  title = {MetalHead: Natural Locomotion and Jumping of Quadruped Robot A1 with AMP},
+  year = {2023},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/inspirai/MetalHead}},
+}
