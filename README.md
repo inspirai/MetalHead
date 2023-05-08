@@ -115,6 +115,11 @@ CH:
 ## Contact
 If you have any questions or have a will to coorperate, please [contact](mailto:hqfu@smail.nju.edu.cn)
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=inspirai/MetalHead&type=Date)](https://star-history.com/#inspirai/MetalHead&Date)
+
+
 ## Citing
 
 If you use MetalHead in your research please use the following citation:
