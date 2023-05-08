@@ -104,6 +104,7 @@ CH:
 
 
 ## Highly Related Git
+- [IsaacGymEnvs](https://github.com/NVIDIA-Omniverse/IsaacGymEnvs)
 - [rsl_rl](https://github.com/leggedrobotics/rsl_rl)
 - [legged_gym](https://github.com/leggedrobotics/legged_gym)
 - [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware)
