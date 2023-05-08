@@ -27,7 +27,9 @@ python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 
 ## Changes compared to AMP_for_Hardware
 
-For detail, please see wikis https://github.com/inspirai/MetalHead/wiki (You can try to translate them into English with ChatGPT for convenient reading.)
+Please see wikis https://github.com/inspirai/MetalHead/wiki for detail.(You can try to translate them into English with ChatGPT for convenient reading.)
+
+You can also check this [ppt](https://docs.google.com/presentation/d/16BtMnja4JNx41ni6s1VpcMU_YQhpsE5X/edit?usp=sharing&ouid=100234233253970958121&rtpof=true&sd=true)
 
 ### Observation additions
 EN:
