@@ -6,7 +6,7 @@ The core contribution of this repository is to make the quadruped robot A1 being
 [![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
 Click above image to watch the Video!
 
-### Installation ###
+## Installation
 
 Please just following [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware)'s installation instruction.
 
@@ -22,6 +22,38 @@ Press w,a,s,d to change the speed, and press Space to make it jump!
 python legged_gym/scripts/train.py --task=a1_amp_jump_cmd --headless True
 ```
 25000 iterations of training can be enough to show the performance.
+
+## Observation additions
+- Added root_h, root_euler[:, :2], flat_local_key_pos to obs, representing the absolute height of the root, the rotation angle of the root, and the relative coordinates of the four foot ends in the root coordinate system, respectively
+- Added jump_sig to obs, indicating whether the jump command is triggered
+- policy_obs and critic_obs are consistent
+- amp_policy_obs removes commands and jump_sig from the policy_obs
+
+## Action changes
+- Changed action to position PD control, using the set_dof_position_target_tensor API
+- Policy inference frequency is 200 / 6 Hz, with a physical simulation frequency of 200 Hz and action repetition count of 6
+
+## Reward additions
+- Added _reward_jump_up for calculating task rewards
+
+## Random initialization
+- recovery_init_prob = 0.15, with a 15% probability of random initialization, added _reset_root_states_rec function for random sampling in three Euler angle directions
+
+## Mocap data
+- For command-based locomotion+jump, motion capture data includes gallop_forward0, gallop_forward1, jump0, jump1, jump2, trot_forward0, turn_left0, turn_left1, turn_right0, turn_right1, where trot is the same side two legs
+- In the JSON file, the weight of the jump data is set to 1.5, and the others are 0.5
+
+## Play camera tracking
+- In MOVE_CAMERA mode, the camera follows the robot's root at a fixed angle, and the camera's position and yaw angle relative to the robot remain unchanged
+
+## Some key parameters
+- action_scale=0.75, too large or too small cannot achieve command jump
+- all_stiffness = 80.0, all_damping=1.0, good PD parameters can facilitate simulation training, and more importantly, have a greater impact on the difficulty of sim2real transfer
+- amp_task_reward_lerp = 0.3, controls the weight of task reward and style reward
+- disc_grad_penalty = 0.01, smaller penalty is needed for high-dynamic mocap
+- resampling_time = 2., episode_length_s=10., command sampling interval and episode length, in recovery_init mode, sampling interval has a greater impact on jump effect
+- tracking_ang_vel = 0.1 * 1. / (.005 * 6), too small weight cannot follow angular velocity properly, maybe try heading tracking, which is more convenient in sim
+- In random initialization mode, terminate_after_contacts_on is set to empty
 
 ## observation 新增
 - obs增加`root_h`, `root_euler[:, :2]`, `flat_local_key_pos`, 分别表示root的绝对高度, root的转角以及四个足端在root坐标系下的相对坐标
