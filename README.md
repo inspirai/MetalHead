@@ -94,7 +94,6 @@ EN:
 - resampling_time = 2., episode_length_s=10., command sampling interval and episode length, in recovery_init mode, sampling interval has a greater impact on jump effect
 - tracking_ang_vel = 0.1 * 1. / (.005 * 6), too small weight cannot follow angular velocity properly, maybe try heading tracking, which is more convenient in sim
 - In random initialization mode, terminate_after_contacts_on is set to empty
-- `recovery_init_prob = 0.15` add 15% random fall init to achieve robust recovery.
 
 CH:
 - `action_scale=0.75`, 太大或者太小无法实现command jump
@@ -104,7 +103,6 @@ CH:
 - `resampling_time = 2.`, `episode_length_s=10.`, command采样间隔以及回合长度, 在recovery_init模式下, 采样间隔对jump效果影响较大
 - `tracking_ang_vel = 0.1 * 1. / (.005 * 6)`, 权重太小无法正常跟随角速度，或许可以尝试heading跟随，在sim中比较方便
 - 在随机初始化模式下，`terminate_after_contacts_on`设置为空
-- `recovery_init_prob = 0.15` 增加了15%几率的随机倒地初始化实现Robust Recovery
 
 
 ## Highly Related Git
