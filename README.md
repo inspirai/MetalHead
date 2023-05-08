@@ -121,3 +121,6 @@ If you use MetalHead in your research please use the following citation:
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/inspirai/MetalHead}},
 }
+
+## Contact
+If you have any questions or have a will to coorperate, please [contact](mailto:hqfu@smail.nju.edu.cn)
