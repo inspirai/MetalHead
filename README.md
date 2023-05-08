@@ -1,6 +1,8 @@
 
 # Natural Locomotion and Jumping of Quadruped Robot A1 with AMP
 
+The core contribution of this repository is to make the quadruped robot A1 being able to do natural locomotion and jumping like the video below. This repository is based off of Alejandro Escontrela's [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware). All experiments are running on [Isaac Gym](https://developer.nvidia.com/isaac-gym).
+
 [![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
 Click above image to watch the Video!
 
