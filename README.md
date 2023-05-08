@@ -17,7 +17,7 @@ Please just following [AMP_for_hardware](https://github.com/Alescontrela/AMP_for
 ```
 python legged_gym/scripts/play.py --task=a1_amp_jump_cmd --num_envs=64 --load_run=example
 ```
-Press w,a,s,d to change A1 speed for different gait of walking and running, and press Space to make it jump! Have fun of it!
+Press w,a,s,d to change A1 speed for different gaits of walking and running, and press Space to make it jump! Have fun of it!
 
 ## How to Train
 ```
