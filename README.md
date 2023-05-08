@@ -1,5 +1,5 @@
 
-# Quadruped Robot A1 Locomotion and Jumping with AMP
+# Natural Locomotion and Jumping of Quadruped Robot A1 with AMP
 
 [![Watch the video](https://img.youtube.com/vi/IdzfE9rXoqY/maxresdefault.jpg)](https://youtu.be/IdzfE9rXoqY)
 Click above image to watch the Video!
@@ -67,3 +67,7 @@ python legged_gym/scripts/play.py --task=a1_amp_jump_cmd --num_envs=64 --load_ru
 - `amp_jump_v2.1`: 利用AMP以及动捕数据实现a1 jump
 - `amp_base_version`: 利用AMP以及动捕数据实现a1 locomotion
 
+## Highly Related Git
+- [rsl_rl](https://github.com/leggedrobotics/rsl_rl)
+- [legged_gym](https://github.com/leggedrobotics/legged_gym)
+- [AMP_for_hardware](https://github.com/Alescontrela/AMP_for_hardware)
