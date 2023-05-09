@@ -35,6 +35,8 @@ from .a1.a1_config import A1RoughCfg, A1RoughCfgPPO
 from .a1.a1_amp_config import A1AMPCfg, A1AMPCfgPPO
 from .a1.a1_amp_jump_config import A1AMPJumpCfg, A1AMPJumpCfgPPO
 from .a1.a1_amp_jump_cmd_config import A1AMPJumpCMDCfg, A1AMPJumpCMDCfgPPO
+from .base.legged_robot_v2 import LeggedRobotV2
+
 
 
 import os
@@ -45,3 +47,5 @@ task_registry.register( "a1", LeggedRobot, A1RoughCfg(), A1RoughCfgPPO() )
 task_registry.register( "a1_amp_locomotion", LeggedRobot, A1AMPCfg(), A1AMPCfgPPO() )
 task_registry.register( "a1_amp_jump", LeggedRobot, A1AMPJumpCfg(), A1AMPJumpCfgPPO() )
 task_registry.register( "a1_amp_jump_cmd", LeggedRobot, A1AMPJumpCMDCfg(), A1AMPJumpCMDCfgPPO() )
+task_registry.register( "a1_amp_jump_cmd_play", LeggedRobotV2, A1AMPJumpCMDCfg(), A1AMPJumpCMDCfgPPO() )
+
