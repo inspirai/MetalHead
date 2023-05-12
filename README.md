@@ -54,6 +54,7 @@ CH:
 EH:
 - Changed action to position PD control, using `set_dof_position_target_tensor` API
 - Policy inference frequency is 200 / 6 Hz, with a physical simulation frequency of 200 Hz and action repetition count of 6
+
 CH:
 - action改为位置PD控制，使用`set_dof_position_target_tensor` API
 - policy inference频率200 / 6 Hz, 其中物理仿真200Hz, action重复次数为6次
